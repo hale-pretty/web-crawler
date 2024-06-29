@@ -1,7 +1,18 @@
 {
     "compilerOptions": {
-      "module": "NodeNext", // Quy định output module được sử dụng
-      "moduleResolution": "NodeNext",
+      "lib": [
+      "ESNext" /* ESNext includes new Level-4 features that were
+               recently added to the ECMA-262 JS spec */
+      ],
+
+      "module": "NodeNext",/* (1 of 2) TS v4.7 settings you need 
+                              to change */
+
+      "moduleResolution": "NodeNext", /* This is the one that will 
+                                      specifically solve the error you're 
+                                      getting. Without the internal changes
+                                      made by this, your project will not
+                                      resolve modules correctly. */
       "target": "ES2022", // Target output cho code
       "outDir": "dist", // Đường dẫn output cho thư mục build
       "esModuleInterop": true,
