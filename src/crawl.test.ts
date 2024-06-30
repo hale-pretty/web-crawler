@@ -35,4 +35,10 @@ describe('Crawl', () => {
       </html>
     `, 'https://blog.boot.dev')).toEqual(['https://blog.boot.dev/page1']);
     });
+
+    test('crawlPage recursion', async () => {
+      const result = await crawlPage('https://wagslane.dev', 'https://wagslane.dev', {})
+      expect(result['wagslane.dev']).toEqual(63)
+      expect(result['wagslane.dev/tags']).toEqual(62)
+    }, 100000)
 });
