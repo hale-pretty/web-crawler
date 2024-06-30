@@ -24,7 +24,6 @@ const isRelativeUrl = (value: string): boolean => {
 
 }
 
-
 const getURLsFromHTML = (html: string, baseURL: string): string[] => {
   const dom = new JSDOM(html)
   const document = dom.window.document
@@ -38,7 +37,7 @@ const getURLsFromHTML = (html: string, baseURL: string): string[] => {
   return urls
 }
 
-async function crawlPageHTML(curURL: string): Promise<string> {
+const crawlPageHTML = async (curURL: string): Promise<string> => {
   const response = await fetch(curURL)
   if (response.status >= 400) {
     console.error(`Error: Received status code ${response.status}`)
@@ -53,15 +52,8 @@ async function crawlPageHTML(curURL: string): Promise<string> {
   return html  
 }
 
-async function crawlPage(baseURL: string, currentURL: string, pages: { [key: string]: number }): Promise<{ [key: string]: number }> {
-  // // Check the domain name NOTICE VAR NUMBER
-  // const baseUrlObj = new URL(baseURL)
-  // const curUrlObj = new URL(currentURL)
-  // const baseDomain = baseUrlObj.hostname
-  // const curDomain = curUrlObj.hostname
-  // if (baseDomain != curDomain) {
-  //   return pages
-  // }
+const crawlPage = async (baseURL: string, currentURL: string, pages: { [key: string]: number }): Promise<{ [key: string]: number }> => {
+
   let continueCrawlPage = false;
   // Count so lan xuat hien
   const normCurUrl = normalizeURL(currentURL)
