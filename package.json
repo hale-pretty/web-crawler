@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "HTTP learning project",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "dev": "npx tsx src/index.ts",

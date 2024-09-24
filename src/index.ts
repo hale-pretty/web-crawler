@@ -17,9 +17,9 @@ const main = async () => {
 
 const printReport = (result: {[key: string]: number}) => {
   console.log('The report is starting...')
-  const entries: [string, string | number][] = Object.entries(result)
+  const entries: [string, number][] = Object.entries(result)
   entries.forEach(([key, value]) => {
-  console.log(`Found ${value} internal links to ${key}`)
+    console.log(`Found ${value} internal links to ${key}`)
   }) 
 }
 

@@ -82,9 +82,13 @@ const crawlPage = async (baseURL: string, currentURL: string, pages: { [key: str
 
 
   // Recursive crawl ref URLs
-  for (let url of toVisitUrls) {
-    await crawlPage(baseURL, url, pages)
-  }
+  // for (let url of toVisitUrls) {
+  //   await crawlPage(baseURL, url, pages)
+  // }
+
+  const promises = toVisitUrls.map(url => crawlPage(baseURL, url, pages))
+  await Promise.all(promises)
+
   return pages
 }
 
